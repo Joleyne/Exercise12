@@ -1,7 +1,7 @@
 //Joleyne Hernandez 04-11-24  CSCI 1660
-class StackFullException extends Exception {}
+class QueueFullException extends Exception {}
 
-class StackEmptyException extends Exception {}
+class QueueEmptyException extends Exception {}
 
 
 class Queue<E> {
@@ -14,18 +14,18 @@ class Queue<E> {
         this.size = size;
     }
 
-    void enqueue(E element ) throws StackFullException {
+    void enqueue(E element ) throws QueueFullException {
         if (index >= size) {
-            throw new StackFullException();
+            throw new QueueFullException();
         }
 
         elements[index] = element;
         index++;
     }
 
-    E dequeue () throws StackEmptyException {
+    E dequeue () throws QueueEmptyException {
         if (index == 0) {
-            throw new StackEmptyException();
+            throw new QueueEmptyException();
         }
 
         E returnElement = elements[2-index];
@@ -43,7 +43,7 @@ public class Main {
             strings.enqueue("World");
             System.out.println(strings.dequeue());
             System.out.println(strings.dequeue());
-        } catch (StackFullException | StackEmptyException e) {
+        } catch (QueueFullException | QueueEmptyException e) {
             e.printStackTrace();
         }
 
